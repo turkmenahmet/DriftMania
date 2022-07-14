@@ -22,9 +22,20 @@ public class Health : MonoBehaviour
         health = maxHealth;
     }
 
-    public void HealthIncrease()
+    private void Update()
     {
-        health += 10;
+        print("<color=#ffa900>HEALTH </color>" + health);
+        print("<color=#ff0000>TIME </color>" + Time.timeScale);
+    }
+
+    public void HealthIncreaseSkill()
+    {
+        health += 20;
+        GUIManagement.Instance.FillHealth(health);
+        if (health >= 100)
+        {
+            health = 100;
+        }
     }
 
     public void HealthDecrease()
@@ -35,6 +46,9 @@ public class Health : MonoBehaviour
         {
             // restart scene
         }
-        
+        if (health < 30)
+        {
+            CameraManagement.Instance.CameraShake(7f, 1f);
+        }
     }
 }

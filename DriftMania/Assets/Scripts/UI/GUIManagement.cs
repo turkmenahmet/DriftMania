@@ -9,11 +9,11 @@ public class GUIManagement : MonoBehaviour
 
     [SerializeField] Image healthBar;
     [SerializeField] Image nitroBar;
-    [SerializeField] Image healthSkill;
-    [SerializeField] Image nitroSkill;
+    [SerializeField] Image timeSkill;
     [SerializeField] Image powerSkill;
 
     private float currentHealth;
+    private float currentNitro;
 
     private void Awake()
     {
@@ -29,4 +29,11 @@ public class GUIManagement : MonoBehaviour
             healthBar.fillAmount = 0;
         }
     }
+
+    public void FillNitro(float cNitro)
+    {
+        currentNitro = cNitro;
+        nitroBar.fillAmount = currentNitro / 100;
+    }
+
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class HitCameraShake : MonoBehaviour
+public class CameraManagement : MonoBehaviour
 {
-    public static HitCameraShake Instance { get; private set; }
+    public static CameraManagement Instance { get; private set; }
 
     private CinemachineVirtualCamera cinemachineVirtualCamera;
     private float shakeTimer;
@@ -34,5 +34,10 @@ public class HitCameraShake : MonoBehaviour
         CinemachineBasicMultiChannelPerlin cmBasicMultiChannelPerlin = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         cmBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
         shakeTimer = time;
+    }
+
+    public void CameraZoom()
+    {
+        // When player use the W skill in slow motion camera will zoom
     }
 }

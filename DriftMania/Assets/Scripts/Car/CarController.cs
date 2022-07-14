@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public static CarController Instance { get; private set; }
+
     [SerializeField] float carSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float steerAngle;
@@ -16,12 +18,15 @@ public class CarController : MonoBehaviour
     Vector3 moveVec;
     Vector3 rotVec;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Update()
     {
         // Moving
         moveVec += transform.forward * carSpeed * Time.deltaTime;
         transform.position += moveVec * Time.deltaTime;
-
         rotVec += new Vector3(0, Input.GetAxis("Horizontal"), 0);
 
         // Rotate
@@ -36,5 +41,23 @@ public class CarController : MonoBehaviour
         rotVec = Vector3.ClampMagnitude(rotVec, steerAngle);
         lw.localRotation = Quaternion.Euler(rotVec);
         rw.localRotation = Quaternion.Euler(rotVec);
+    }
+
+    public void NitroSpeedIncrease()
+    {
+        carSpeed++;
+        if (carSpeed >= 40f)
+        {
+            carSpeed = 40f;
+        }
+    }
+
+    public void NitroSpeedDecrease()
+    {
+        carSpeed--;
+        if (carSpeed == 20f)
+        {
+            carSpeed = 20f;
+        }
     }
 }
