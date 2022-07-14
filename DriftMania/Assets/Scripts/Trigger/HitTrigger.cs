@@ -8,7 +8,7 @@ public class HitTrigger : MonoBehaviour
     {
         if (target.gameObject.tag == "Player")
         {
-            HitCameraShake.Instance.CameraShake(4.5f, .1f);
+            HitCameraShake.Instance.CameraShake(7f, .2f);
         }
     }
 }
