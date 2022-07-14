@@ -16,11 +16,6 @@ public class CarController : MonoBehaviour
     Vector3 moveVec;
     Vector3 rotVec;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         // Moving
@@ -37,6 +32,7 @@ public class CarController : MonoBehaviour
         moveVec = Vector3.ClampMagnitude(moveVec, maxSpeed);
         moveVec = Vector3.Lerp(moveVec.normalized, transform.forward, traction * Time.deltaTime) * moveVec.magnitude;
 
+        // Wheel
         rotVec = Vector3.ClampMagnitude(rotVec, steerAngle);
         lw.localRotation = Quaternion.Euler(rotVec);
         rw.localRotation = Quaternion.Euler(rotVec);
