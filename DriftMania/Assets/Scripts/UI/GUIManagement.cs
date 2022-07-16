@@ -9,8 +9,6 @@ public class GUIManagement : MonoBehaviour
 
     [SerializeField] Image healthBar;
     [SerializeField] Image nitroBar;
-    [SerializeField] Image timeSkill;
-    [SerializeField] Image powerSkill;
 
     private float currentHealth;
     private float currentNitro;
@@ -24,15 +22,14 @@ public class GUIManagement : MonoBehaviour
     {
         currentHealth = cHealth;
         healthBar.fillAmount = currentHealth / 100;
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             healthBar.fillAmount = 0;
         }
     }
 
-    public void FillNitro(float cNitro)
+    public void FillNitro()
     {
-        currentNitro = cNitro;
         nitroBar.fillAmount = currentNitro / 100;
     }
 

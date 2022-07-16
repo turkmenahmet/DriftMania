@@ -6,10 +6,11 @@ public class Nitro : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             CarController.Instance.NitroSpeedIncrease();
-            GUIManagement.Instance.FillNitro(40);
+            GUIManagement.Instance.FillNitro();
+            CameraManagement.Instance.CameraShake(7f, 2f);
         }
     }
 }

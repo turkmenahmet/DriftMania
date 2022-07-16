@@ -45,19 +45,11 @@ public class CarController : MonoBehaviour
 
     public void NitroSpeedIncrease()
     {
-        carSpeed++;
-        if (carSpeed >= 40f)
-        {
-            carSpeed = 40f;
-        }
+        carSpeed = 30f;
+        Invoke("NitroSpeedDecrease", 2f);
     }
-
     public void NitroSpeedDecrease()
     {
-        carSpeed--;
-        if (carSpeed == 20f)
-        {
-            carSpeed = 20f;
-        }
+        carSpeed = 20f;
     }
 }

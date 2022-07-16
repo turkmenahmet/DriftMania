@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthManagement : MonoBehaviour
+public class HealthSkillManagement : MonoBehaviour
 {
+    // COOLDOWN VALUES
     float coolDown;
     float coolTime = 2f;
     bool cool;
     [SerializeField] Image healthImg;
-
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
@@ -25,16 +21,19 @@ public class HealthManagement : MonoBehaviour
         if (!cool)
         {
             healthImg.fillAmount = 1;
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 cool = true; 
+
                 Health.Instance.HealthIncreaseSkill();
-                StartCoroutine("CoolDown");                
+
+                StartCoroutine("HCoolDown");                
             }            
         }
     }
 
-    IEnumerator CoolDown()
+    IEnumerator HCoolDown()
     {
         coolDown = 0;
         while (true)
@@ -45,11 +44,10 @@ public class HealthManagement : MonoBehaviour
             if (coolDown >= coolTime)
             {
                 cool = false;
-                StopCoroutine("CoolDown");
+                StopCoroutine("HCoolDown");
             }
 
             yield return null;
         }
     }
-
 }

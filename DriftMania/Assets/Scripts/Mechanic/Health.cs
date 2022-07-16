@@ -25,7 +25,6 @@ public class Health : MonoBehaviour
     private void Update()
     {
         print("<color=#ffa900>HEALTH </color>" + health);
-        print("<color=#ff0000>TIME </color>" + Time.timeScale);
     }
 
     public void HealthIncreaseSkill()
@@ -45,6 +44,7 @@ public class Health : MonoBehaviour
         if (health <= minHealth)
         {
             // restart scene
+            health = 0;
         }
         if (health < 30)
         {
