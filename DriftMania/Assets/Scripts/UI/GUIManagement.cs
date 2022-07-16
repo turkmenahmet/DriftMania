@@ -12,6 +12,10 @@ public class GUIManagement : MonoBehaviour
 
     private float currentHealth;
 
+    float coolDown;
+    float coolTime = 2f;
+    bool cool;
+
     private void Awake()
     {
         Instance = this;
@@ -29,7 +33,35 @@ public class GUIManagement : MonoBehaviour
 
     public void FillNitro()
     {
-        nitroBar.fillAmount -= .2f;
+        if (!cool)
+        {
+            if (true)
+            {
+                cool = true;
+
+                CarController.Instance.NitroSpeedIncrease();
+                CameraManagement.Instance.CameraShake(7f, 2f);
+
+                StartCoroutine("NCoolDown");
+            }            
+        }
     }
 
+    IEnumerator NCoolDown()
+    {
+        coolDown = 0;
+        while (true)
+        {
+            coolDown += Time.deltaTime;
+            nitroBar.fillAmount = coolDown / coolTime;
+
+            if (coolDown >= coolTime)
+            {
+                cool = false;
+                StopCoroutine("NCoolDown");
+            }
+
+            yield return null;
+        }
+    }
 }

@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        print("<color=#ffa900>HEALTH </color>" + health);
+        //print("<color=#ffa900>HEALTH </color>" + health);
     }
 
     public void HealthIncreaseSkill()

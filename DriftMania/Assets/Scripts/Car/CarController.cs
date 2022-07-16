@@ -24,6 +24,11 @@ public class CarController : MonoBehaviour
     }
     void Update()
     {
+        CarMovement();
+    }
+
+    private void CarMovement()
+    {
         // Moving
         moveVec += transform.forward * carSpeed * Time.deltaTime;
         transform.position += moveVec * Time.deltaTime;
@@ -45,7 +50,8 @@ public class CarController : MonoBehaviour
 
     public void NitroSpeedIncrease()
     {
-        carSpeed = 30f;
+        carSpeed = 30f;    
+             
         Invoke("NitroSpeedDecrease", 2f);
     }
     public void NitroSpeedDecrease()
