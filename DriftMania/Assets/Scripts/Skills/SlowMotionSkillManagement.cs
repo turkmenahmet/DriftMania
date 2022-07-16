@@ -5,18 +5,11 @@ using UnityEngine.UI;
 
 public class SlowMotionSkillManagement : MonoBehaviour
 {
-    float slowmotionCd = 2f;
-
     // COOLDOWN VALUES
     float coolDown;
     float coolTime = 5f;
     bool cool;
     [SerializeField] Image smImg;
-
-    private void Start()
-    {
-        slowmotionCd = Time.timeScale;
-    }
 
     private void Update()
     {
@@ -60,12 +53,13 @@ public class SlowMotionSkillManagement : MonoBehaviour
 
     private void SlowMotion()
     {
-        slowmotionCd -= Time.deltaTime;
         Time.timeScale = 0.5f;
         // CameraManagement.Instance.CameraZoom();
-        if (slowmotionCd < 0)
-        {
-            Time.timeScale = 1;
-        }
+        Invoke("SlowMotionOut", 1f);
+    }
+
+    private void SlowMotionOut()
+    {
+        Time.timeScale = 1;
     }
 }

@@ -11,7 +11,6 @@ public class GUIManagement : MonoBehaviour
     [SerializeField] Image nitroBar;
 
     private float currentHealth;
-    private float currentNitro;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class GUIManagement : MonoBehaviour
 
     public void FillNitro()
     {
-        nitroBar.fillAmount = currentNitro / 100;
+        nitroBar.fillAmount -= .2f;
     }
 
 }
