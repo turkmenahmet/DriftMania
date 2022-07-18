@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject guiPanel;
 
     [SerializeField] Button restartBtn;
     [SerializeField] Button settingsBtn;
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
     private void Resume()
     {
         pausePanel.SetActive(false);
+        guiPanel.SetActive(true);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
     private void Pause()
     {
         pausePanel.SetActive(true);
+        guiPanel.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
