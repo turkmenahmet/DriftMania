@@ -58,4 +58,12 @@ public class CarController : MonoBehaviour
     {
         carSpeed = 20f;
     }
+
+    public void Freeze()
+    {
+        carSpeed = 0;
+        maxSpeed = 0;
+        steerAngle = 0;
+        traction = 0;
+    }
 }
