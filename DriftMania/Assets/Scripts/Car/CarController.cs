@@ -50,13 +50,13 @@ public class CarController : MonoBehaviour
 
     public void NitroSpeedIncrease()
     {
-        carSpeed = 30f;    
+        carSpeed = 20f;    
              
         Invoke("NitroSpeedDecrease", 2f);
     }
     public void NitroSpeedDecrease()
     {
-        carSpeed = 20f;
+        carSpeed = 10f;
     }
 
     public void Freeze()

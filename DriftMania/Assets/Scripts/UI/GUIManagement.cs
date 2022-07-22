@@ -40,7 +40,7 @@ public class GUIManagement : MonoBehaviour
                 cool = true;
 
                 CarController.Instance.NitroSpeedIncrease();
-                CameraManagement.Instance.CameraShake(5f, 2f);
+                CameraManagement.Instance.CameraShake(3.5f, 2f);
 
                 StartCoroutine("NCoolDown");
             }            
