@@ -26,9 +26,9 @@ public class SlowMotionSkillManagement : MonoBehaviour
             {
                 cool = true;
 
-                SlowMotion();
+                //SlowMotion();
 
-                StartCoroutine("SMCoolDown");
+                //StartCoroutine("SMCoolDown");
             }
         }
     }
