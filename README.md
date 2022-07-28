@@ -1,3 +1,3 @@
 # DriftMania
-NOT QUITE FINISHED
-![DMGIF-min](https://user-images.githubusercontent.com/108531432/181640760-e19dc4f2-9984-4ea9-8530-0b7c1a6cfe2e.gif)
+
+https://user-images.githubusercontent.com/108531432/181642251-54b44d27-5408-4389-be91-c2136eaea1a6.mp4
